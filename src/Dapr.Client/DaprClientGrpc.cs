@@ -1,4 +1,4 @@
-// ------------------------------------------------------------------------
+﻿// ------------------------------------------------------------------------
 // Copyright 2021 The Dapr Authors
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -262,6 +262,7 @@ namespace Dapr.Client
             //
             // This approach avoids some common pitfalls that could lead to undesired encoding.
             var path = $"/v1.0/invoke/{appId}/method/{methodName.TrimStart('/')}";
+#pragma warning disable CS0618 // Type or member is obsolete
             var request = new HttpRequestMessage(httpMethod, new Uri(this.httpEndpoint, path))
             {
                 Properties =
@@ -270,6 +271,7 @@ namespace Dapr.Client
                     { MethodNameKey, methodName },
                 }
             };
+#pragma warning restore CS0618 // Type or member is obsolete
 
             if (this.apiTokenHeader is not null)
             {
@@ -352,8 +354,10 @@ namespace Dapr.Client
             {
                 // Our code path for creating requests places these keys in the request properties. We don't want to fail
                 // if they are not present.
+#pragma warning disable CS0618 // Type or member is obsolete
                 request.Properties.TryGetValue(AppIdKey, out var appId);
                 request.Properties.TryGetValue(MethodNameKey, out var methodName);
+#pragma warning restore CS0618 // Type or member is obsolete
 
                 throw new InvocationException(
                     appId: appId as string,
@@ -376,8 +380,10 @@ namespace Dapr.Client
             {
                 // Our code path for creating requests places these keys in the request properties. We don't want to fail
                 // if they are not present.
+#pragma warning disable CS0618 // Type or member is obsolete
                 request.Properties.TryGetValue(AppIdKey, out var appId);
                 request.Properties.TryGetValue(MethodNameKey, out var methodName);
+#pragma warning restore CS0618 // Type or member is obsolete
 
                 throw new InvocationException(
                     appId: appId as string,
@@ -400,8 +406,10 @@ namespace Dapr.Client
             {
                 // Our code path for creating requests places these keys in the request properties. We don't want to fail
                 // if they are not present.
+#pragma warning disable CS0618 // Type or member is obsolete
                 request.Properties.TryGetValue(AppIdKey, out var appId);
                 request.Properties.TryGetValue(MethodNameKey, out var methodName);
+#pragma warning restore CS0618 // Type or member is obsolete
 
                 throw new InvocationException(
                     appId: appId as string,
@@ -418,8 +426,10 @@ namespace Dapr.Client
             {
                 // Our code path for creating requests places these keys in the request properties. We don't want to fail
                 // if they are not present.
+#pragma warning disable CS0618 // Type or member is obsolete
                 request.Properties.TryGetValue(AppIdKey, out var appId);
                 request.Properties.TryGetValue(MethodNameKey, out var methodName);
+#pragma warning restore CS0618 // Type or member is obsolete
 
                 throw new InvocationException(
                     appId: appId as string,
@@ -429,8 +439,10 @@ namespace Dapr.Client
             }
             catch (JsonException ex)
             {
+#pragma warning disable CS0618 // Type or member is obsolete
                 request.Properties.TryGetValue(AppIdKey, out var appId);
                 request.Properties.TryGetValue(MethodNameKey, out var methodName);
+#pragma warning restore CS0618 // Type or member is obsolete
 
                 throw new InvocationException(
                     appId: appId as string,

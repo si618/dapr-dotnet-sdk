@@ -1,4 +1,4 @@
-// ------------------------------------------------------------------------
+﻿// ------------------------------------------------------------------------
 // Copyright 2021 The Dapr Authors
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -93,7 +93,7 @@ namespace Dapr.Client
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
             var original = request.RequestUri;
-            if (!this.TryRewriteUri(request.RequestUri, out var rewritten))
+            if (!this.TryRewriteUri(request.RequestUri!, out var rewritten))
             {
                 throw new ArgumentException($"The request URI '{original}' is not a valid Dapr service invocation destination.", nameof(request));
             }

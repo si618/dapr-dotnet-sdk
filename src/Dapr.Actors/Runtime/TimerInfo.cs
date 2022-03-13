@@ -1,4 +1,4 @@
-// ------------------------------------------------------------------------
+﻿// ------------------------------------------------------------------------
 // Copyright 2021 The Dapr Authors
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -131,15 +131,15 @@ namespace Dapr.Actors.Runtime
             using var stream = new MemoryStream();
 
             writer.WriteStartObject();
-            if (value.DueTime != null)
-            {
-                writer.WriteString("dueTime", ConverterUtils.ConvertTimeSpanValueInDaprFormat(value.DueTime));
-            }
+            //if (value.DueTime != null)
+            //{
+            //    writer.WriteString("dueTime", ConverterUtils.ConvertTimeSpanValueInDaprFormat(value.DueTime));
+            //}
 
-            if (value.Period != null && value.Period >= TimeSpan.Zero)
-            {
-                writer.WriteString("period", ConverterUtils.ConvertTimeSpanValueInDaprFormat(value.Period));
-            }
+            //if (value.Period != null && value.Period >= TimeSpan.Zero)
+            //{
+            //    writer.WriteString("period", ConverterUtils.ConvertTimeSpanValueInDaprFormat(value.Period));
+            //}
 
             if (value.Data != null)
             {
