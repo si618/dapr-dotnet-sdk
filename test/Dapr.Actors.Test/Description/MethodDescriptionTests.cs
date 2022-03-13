@@ -132,7 +132,9 @@ namespace Dapr.Actors.Description
 
             Task MethodWithMultipleTokens(CancellationToken cancellationToken, CancellationToken cancellationTokenToo);
 
-            Task MethodWithTokenNotLast(bool additionalArgument, CancellationToken cancellationToken);
+#pragma warning disable CA1068 // CancellationToken parameters must come last
+            Task MethodWithTokenNotLast(CancellationToken cancellationToken, bool additionalArgument);
+#pragma warning restore CA1068 // CancellationToken parameters must come last
         }
     }
 }
