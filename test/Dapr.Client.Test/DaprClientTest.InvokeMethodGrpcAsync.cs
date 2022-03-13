@@ -371,7 +371,7 @@ namespace Dapr.Client.Test
                 };
             }
 
-            private Task<InvokeResponse> SayHello(InvokeRequest request)
+            private static Task<InvokeResponse> SayHello(InvokeRequest request)
             {
                 var helloRequest = request.Data.Unpack<Request>();
                 var helloResponse = new Response() { Name = $"Hello {helloRequest.RequestParameter}" };
@@ -382,7 +382,7 @@ namespace Dapr.Client.Test
                 });
             }
 
-            private Task<InvokeResponse> TestRun(InvokeRequest request)
+            private static Task<InvokeResponse> TestRun(InvokeRequest request)
             {
                 var echoRequest = request.Data.Unpack<TestRun>();
                 return Task.FromResult(new InvokeResponse()

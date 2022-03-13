@@ -132,7 +132,7 @@ namespace Dapr.Actors.Description
 
             Task MethodWithMultipleTokens(CancellationToken cancellationToken, CancellationToken cancellationTokenToo);
 
-            Task MethodWithTokenNotLast(CancellationToken cancellationToken, bool additionalArgument);
+            Task MethodWithTokenNotLast(bool additionalArgument, CancellationToken cancellationToken);
         }
     }
 }
